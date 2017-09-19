@@ -3,9 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Untitled Document</title>
-</head>
-
-<body>
 <script style='text/javascript'>
 function rssticker(t){for(var a=0;a<numeroposts;a++){entradas=t.feed.entry[a],titulosposts[a]=entradas.title.$t;for(var e=0;e<entradas.link.length;e++)if("alternate"==entradas.link[e].rel){enlaceposts[a]=entradas.link[e].href;break}}startrssticker()}function startrssticker(){postactual=-1,largoactual=0,enlaces=document.getElementById("enlace"),runticker()}function runticker(){var t;0==largoactual&&(postactual++,postactual%=numeroposts,titulo=titulosposts[postactual].replace(/&quot;/g,'"'),enlace=enlaceposts[postactual],enlaces.href=enlace),enlaces.innerHTML=titulo.substring(0,largoactual),largoactual!=titulo.length?(largoactual++,t=retardocaracter):(largoactual=0,t=retardopost),setTimeout("runticker()",t)}
 var numeroposts = 6; //Entradas a mostrar
@@ -15,17 +12,21 @@ var titulosposts = new Array();
 var enlaceposts = new Array();
 var entradas = "";
 </script>
-<div class='rssticker'>
-<span class="encabezado">LO ÚLTIMO</span>
-<a id='enlace'></a>
-<!-- Aqui la dirección del feed -->
-<script src='http://dasrisa.com/feeds/posts/default?alt=json-in-script&callback=rssticker' style='text/javascript'></script>
-</div>
 <style>
 .rssticker{position:relative!important;width:100%;height:40px;overflow:hidden;white-space: nowrap;text-overflow: ellipsis;margin:10px auto;color:#fff;background:#fcd504;font-size:14px;font-family:Arial;line-height:40px;}
 .encabezado{display:inline-block;margin:0 10px 0 0;padding:0 10px;line-height:40px;background:#000;box-sizing:border-box;}
 .rssticker a{color:#000;text-decoration:none;}
 .rssticker a:hover{text-decoration:none;color:#ccb32e;}
 </style>
+</head>
+
+<body>
+
+<div class='rssticker'>
+<span class="encabezado">LO ÚLTIMO</span>
+<a id='enlace'></a>
+<!-- Aqui la dirección del feed -->
+<script src='http://dasrisa.com/feeds/posts/default?alt=json-in-script&callback=rssticker' style='text/javascript'></script>
+</div>
 </body>
 </html>
